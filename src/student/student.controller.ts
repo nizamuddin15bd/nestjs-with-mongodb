@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { Student } from './student.schema';
 
@@ -28,5 +28,11 @@ export class StudentController {
     @Body() data: Partial<Student>,
   ) {
     return this.studentService.updatedStudent(id, data);
+  }
+
+  // @pathch(':id')
+  @Patch(':id')
+  async patchStudent(@Param('id') id: string, @Body() data: Partial<Student>) {
+    return this.studentService.patchStudent(id, data);
   }
 }
