@@ -30,7 +30,7 @@ export class StudentController {
     return this.studentService.updatedStudent(id, data);
   }
 
-  // @pathch(':id')
+  // @pathch(':id') created
   @Patch(':id')
   async patchStudent(@Param('id') id: string, @Body() data: Partial<Student>) {
     return this.studentService.patchStudent(id, data);
