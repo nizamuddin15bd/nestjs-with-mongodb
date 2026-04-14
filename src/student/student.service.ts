@@ -51,4 +51,9 @@ export class StudentService {
   ): Promise<Student | null> {
     return this.studentModel.findByIdAndUpdate(id, data, { new: true }).exec();
   }
+
+  // Delete a student by ID
+  async deletedStudent(id: string): Promise<Student | null> {
+    return this.studentModel.findByIdAndDelete(id).exec();
+  }
 }
